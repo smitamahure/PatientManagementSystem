@@ -1,0 +1,121 @@
+<div class="container py-4">
+  <div class="card shadow-sm border-0">
+    <div class="card-body p-4 p-md-5">
+      <h2 class="card-title mb-4">
+        {{ isEditMode ? 'Edit Patient' : 'Add Patient' }}
+      </h2>
+
+      <form (ngSubmit)="savePatient()" class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label" for="firstName">First Name</label>
+          <input
+            id="firstName"
+            type="text"
+            class="form-control"
+            name="firstName"
+            [(ngModel)]="patient.firstName"
+            placeholder="Enter first name"
+            required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label" for="lastName">Last Name</label>
+          <input
+            id="lastName"
+            type="text"
+            class="form-control"
+            name="lastName"
+            [(ngModel)]="patient.lastName"
+            placeholder="Enter last name"
+            required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label" for="dateOfBirth">Date of Birth</label>
+          <input
+            id="dateOfBirth"
+            type="date"
+            class="form-control"
+            name="dateOfBirth"
+            [(ngModel)]="patient.dateOfBirth"
+            required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label" for="gender">Gender</label>
+          <select
+            id="gender"
+            class="form-select"
+            name="gender"
+            [(ngModel)]="patient.gender">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label" for="phone">Phone</label>
+          <input
+            id="phone"
+            type="text"
+            class="form-control"
+            name="phone"
+            [(ngModel)]="patient.phone"
+            placeholder="Enter phone number">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label" for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            class="form-control"
+            name="email"
+            [(ngModel)]="patient.email"
+            placeholder="Enter email address">
+        </div>
+
+        <div class="col-12">
+          <label class="form-label" for="address">Address</label>
+          <textarea
+            id="address"
+            class="form-control"
+            name="address"
+            rows="3"
+            [(ngModel)]="patient.address"
+            placeholder="Enter address">
+          </textarea>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label" for="bloodGroup">Blood Group</label>
+          <select
+            id="bloodGroup"
+            class="form-select"
+            name="bloodGroup"
+            [(ngModel)]="patient.bloodGroup">
+            <option value="">Select Blood Group</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+          </select>
+        </div>
+
+        <div class="col-12 d-flex justify-content-end gap-2 mt-4">
+          <button type="button" class="btn btn-outline-secondary" (click)="resetForm()">
+            Reset
+          </button>
+          <button type="submit" class="btn btn-primary px-4">
+            {{ isEditMode ? 'Update Patient' : 'Save Patient' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
